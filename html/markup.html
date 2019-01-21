@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mark up</title>
+    <style>
+        table, tr, td{
+            border: 1px solid darkgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>프로그래밍 교육</h1>
+    <a href="https://docs.python.org/ko/3/tutorial/index.html" target="_blank"><img src="images/python.png" alt="python.org" width="50px" height="50px"></a>
+    <a href="https://developer.mozilla.org/ko/"><img src="images/html5.png" alt="developer.mozilla.org/ko/" width="50px" height="50px"></a> <!-- target을 비워놓으면 현재창에서 페이지를 변경한다.-->
+    <a href="index.html" target="_blank">참고사이트</a>
+    
+    <hr>
+    <section id="python">
+        <h2>
+            <a href="https://docs.python.org/ko/3/tutorial/index.html" target="_blank">파이썬</a>
+        </h2>
+        <h3>Number type</h3>
+        <p>파이썬에서 숫자형은 아래와 같이 있다.</p>
+        <ol>
+            <li>int</li>
+            <li>float</li>
+            <li>complex</li>
+            <li><del>str</del></li>
+        </ol>
+        <h3>Sequence</h3>
+        <p>파이썬에서 시퀀스는 아래와 같이 있다.</p>
+        <h4>시퀀스는 for문을 돌릴 수 있다!!</h4>
+        <ol>
+            <li>str</li>
+            <li>list</li>
+            <li>tuple</li>
+            <li>range</li>
+        </ol>
+    </section>
+    <hr>
+    <section id="web">        
+        <h2><a href="https://developer.mozilla.org/ko/" target="_blank">웹</a></h2>
+        <h3>기초</h3>
+        <!-- ul에 style을 적용하면 자식까지 모두 스타일 적용을 받는다. -->
+        <!-- none, square, circle, lower-alpha,
+                upper-alpha, upper-roman, ... -->
+       
+                <!-- Inliine style (인라인 스타일) -->
+        <ul style="list-style-type: circle;">
+            <li >HTML</li>
+            <li>CSS</li>
+        </ul>
+    </section>
+    
+    <section id="link"></section>
+        <!-- a(anchor) -->
+        <!-- 새로 뜰건지, 현재페이지에서 넘어갈지를 선택
+            _self: 현재페이지
+            _blank: 새페이지 -->
+        <!-- href(hyper rink reference) values
+            1. 절대 URL
+            2. 상대 URL
+            3. element id
+            4. mailto:
+        -->
+        <a href="https://www.google.com" target="_self">절대 URL</a>
+        <a href="index.html" target="_blank">상대 URL</a>
+        <!-- id앞에는 #이 붙는다.  -->
+        <a href="#python">파이썬으로(id pyhton)</a>
+        <!-- 클릭하면 메일 어플레케이션에 뜨고 수신메일에 아래메일이 들어간다 -->
+        <a href="mailto:no.water.in.the.house@gmail.com">메일 보내기</a>
+        
+    </section>
+        
+    <section>
+        <!-- img -->
+        <!--
+            src: 이미지 파일 
+            alt: 이미지의 설명
+            width, height: CSS에서 설정한다.
+         -->
+         <img src="images/wine.jpg" alt="와인" width="200px" height="200px">
+
+         <video src="video.mp4.mp4" width="300px" height="" controls></video>
+
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/-nBGTlBP0Sc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    <section>
+        <!-- table -->
+        <table>
+            <!-- table row -->
+            <tr>
+                <!-- tale head -->
+                <tr>
+                    <th></th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                </tr>
+                <tr>
+                    <!-- table data -->
+                    <td>A 코스</td>
+                    <td rowspan="2">짬뽕</td>
+                    <td colspan="2">초밥</td>
+                    
+                </tr>
+                <tr>
+                    <!-- table data -->
+                    <td>B 코스</td>
+                    <td>김치찌개</td>
+                    <!-- <td>삼계탕</td> -->
+                </tr>
+            </tr>
+            
+        </table>
+    </section>
+    <section>
+        <h1>2019 타임테이블</h1>
+        <table>
+            <!-- table row -->
+            <tr>
+                <tr>
+                    <th>TIME</th>
+                    <th>INDOOR</th>
+                    <th colspan="2">OUTDOOR</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>소극장</td>
+                    <td>잔디마당</td>
+                    <td>대공연장</td>
+                </tr>
+                <tr>
+                    <td>10:00</td>
+                    <td rowspan="2">안녕하신가영</td>
+                    <td></td>
+                    <td>10CM</td>
+                </tr>
+                <tr>
+                    <td>13:00</td>
+                    <td rowspan="2">선우정아</td>
+                    <td rowspan="2">참깨와 솜사탕</td>
+                </tr>
+                <tr>
+                    <td>15:00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>17:00</td>
+                    <td>크러쉬</td>
+                    <td></td>
+                    <td>폴킴</td>
+                </tr>
+            </tr>
+        </table>
+    </section>
+
+    <!-- method를 생략해도 기본값으로 method="GET"으로 들어간다 -->
+    <section>
+        <form action="" method="GET">
+            <!-- 일반적인 Text 입력창 -->
+            <input type="text">
+            <!-- 입력하면 점으로 입력문자가 숨겨진다. -->
+            <input type="password">
+            <!-- 신발 사이즈같은 일정 범위로 올라가는 항목에 적용 -->
+            <input type="number" min="15" max="30" step="5">
+            
+            
+            <!-- radio -->
+            <!-- 의미없는(not 시멘틱) 공간구분, 줄바꿈 기능 -->
+            <!-- name을 동일하게 하면 radio중 하나만 택하게 한다. -->
+            <div>
+                <input type="radio" name="sandwich" checked>에그 마요<br>
+                <input type="radio" name="sandwich">이탈리안 비엠티<br>
+                <input type="radio" name="sandwich">터키 베이컨 아보카도<br>
+            </div>
+            <br>
+            <!-- checkbox -->
+            <div>
+                    <input type="checkbox" name="topping">토마토<br>
+                    <input type="checkbox" name="topping">오이<br>
+                    <input type="checkbox" name="topping">할라피뇨<br>
+                    <input type="checkbox" name="topping">핫 칠리<br>
+                    <input type="checkbox" name="topping">바베큐소스<br>
+            </div>
+
+            <!-- select -->
+            <select name="" id="">
+                <option>허니오트</option>
+                <option>플랫브레드</option>
+                <option selected>파마산 오레가노</option>
+            </select>
+
+            <!-- submit은 "제출"로 기본값이 설정되어있다. value로 변경가능 -->
+            <input type="submit" value="로그인">
+        </form>
+    </section>
+</body>
+</html>
