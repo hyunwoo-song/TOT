@@ -20,7 +20,7 @@
 ```shell
 #가상환경 설정
 pyenv virtualenv 3.6.7 orm-venv
-pyenv local orm-ven
+pyenv local orm-venv
 pip install -U pip
 pip install flask Flask-SQLAlchemy Flask-Migrate
 
