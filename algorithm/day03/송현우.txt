@@ -1,0 +1,100 @@
+1.
+
+Arr=list(map(int, input().split()))
+
+N = 11
+
+start = 0
+end = len(Arr)-1
+
+
+while start <= end:
+    mid = (start + end) >> 1
+    if Arr[mid] == N:
+        print('검색성공')
+        break
+    elif Arr[mid] < N:
+        start = mid+1
+    else:
+        end = mid-1
+
+if Arr[mid] != N:
+    print('검색실패')
+
+2.
+
+Arr=list(map(int, input().split()))
+
+N = 11
+
+start = 0
+end = len(Arr)-1
+
+
+while start <= end:
+    mid = (start + end) >> 1
+    if Arr[mid] == N:
+        print('검색성공')
+        break
+    elif Arr[mid] < N:
+        start = mid+1
+    else:
+        end = mid-1
+
+if Arr[mid] != N:
+    print('검색실패')
+
+3.
+N = 5
+Arr=[]
+min = 0
+arr= [[0]*5]*5
+count=0
+
+for n in range(N):
+    Arr.append(list(map(int, input().split())))
+
+while count < N:
+    for y in range(5):
+        for x in range(5):
+            if min > Arr[y][x]:
+                min = Arr[y][x]
+                Arr[y][x] = 0x7FFFFFFF
+
+    dy = [0, 1, 0, -1]
+    dx = [1, 0, -1, 0]
+
+    for y in range(5):
+        for x in range(5):
+            Arr[y][x] = min
+            while newX == N:
+                for dir in range(4):
+4.
+N = 100
+
+for t in range(1, 11):
+    Arr = []
+    sum_l = []
+
+    T = int(input())
+    sum_Arrz1 = 0
+    sum_Arrz2 = 0
+    for n in range(100):
+        Arr.append(list(map(int, input().split())))
+
+    for y in range(100):
+        sum_Arry = 0
+        sum_Arrx = 0
+        for x in range(100):
+            sum_Arry += Arr[y][x]
+            sum_Arrx += Arr[x][y]
+        sum_l.append(sum_Arry)
+        sum_l.append(sum_Arrx)
+
+    for z in range(100):
+        sum_Arrz1 += Arr[z][z]
+        sum_Arrz2 += Arr[z][99-z]
+    sum_l.append(sum_Arrz1)
+    sum_l.append(sum_Arrz2)
+    max_l = max(sum_l)
+    print(f'#{t} {max_l}')
