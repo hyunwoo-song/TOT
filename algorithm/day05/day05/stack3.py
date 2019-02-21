@@ -23,7 +23,7 @@ for i in range(howmany):
         top -= 1
 
     elif not stack[top]:
-        if (Data[i]==')' or Data[i]=='}' or Data[i]==']' or Data[i]=='>') :
+        if (Data[i]==')' or Data[i]=='}' or Data[i]==']' or Data[i]=='>'):
             count = 1
             break
 
