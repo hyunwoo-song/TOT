@@ -8,3 +8,17 @@
     letter-spacing: 4px;
     text-align: center
 }
+
+
+h1{
+
+}
+
+.blue{
+
+}
+
+#green{
+    color: rgba(255, 255, 0, 0.5);
+    text-decoration: underline;
+}

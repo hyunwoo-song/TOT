@@ -24,7 +24,6 @@ def BFS(y,x):
         new_y=t[0]
         new_x=t[1]
         visit(new_y, new_x)
-
     for i in range(N):
         for j in range(M):
             if Tong[i][j] == -1:
