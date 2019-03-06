@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5500cfe-f663-4c13-9702-2d6af0abe2cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../html/BTS60.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day10/cheeeeeeeze.py" beforeDir="false" afterPath="$PROJECT_DIR$/day10/cheeeeeeeze.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../html/02_unit.htm" beforeDir="false" afterPath="$PROJECT_DIR$/../html/02_unit.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../html/02_unit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../html/02_unit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../html/font.css" beforeDir="false" afterPath="$PROJECT_DIR$/../html/font.css" afterDir="false" />
-    </list>
+    <list default="true" id="f5500cfe-f663-4c13-9702-2d6af0abe2cd" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/day11/4865.str_number.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+            <state relative-caret-position="57">
+              <caret line="3" selection-start-line="3" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -369,12 +362,12 @@
       <workItem from="1551054718557" duration="24310000" />
       <workItem from="1551138830451" duration="28207000" />
       <workItem from="1551226141153" duration="27789000" />
-      <workItem from="1551677865935" duration="11541000" />
+      <workItem from="1551677865935" duration="12172000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120004000" />
+    <option name="totallyTimeSpent" value="120635000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -385,7 +378,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18729463" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.18729463" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978093" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -758,8 +751,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/day11/4865.str_number.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="15" />
         </state>
       </provider>
     </entry>
