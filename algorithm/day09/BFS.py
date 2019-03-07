@@ -2,13 +2,20 @@ import sys
 sys.stdin= open('input.txt', 'r')
 
 
-def visit(t):
-    for i in range(1, N + 1):
-        if Mymap[t][i] and not visited[i]:
-            if not i in Que:
-                Que.append(i)
-                Distance[i] = Distance[t] + 1
-                Parent[i] = t
+def visit(new_y, new_x):
+    global D_result
+    for i in range(4):
+        new_y = y + dy[i]
+        new_x = x + dx[i]
+        if 0 <= new_y and new_y <= N - 1 and new_x <= N - 1 and 0 <= new_x:
+            if Miro[new_y][new_x] != 1 and not visited[new_y][new_x]:
+                if not [new_y, new_x] in Que:
+                    Que.append([new_y, new_x])
+                    Distance[new_y][new_x] = Distance[y][x] + 1
+
+                if Miro[new_y][new_x] == 3:
+                    D_result = Distance[new_y][new_x] -1
+                    return D_result
 
 
 def BFS(here):
