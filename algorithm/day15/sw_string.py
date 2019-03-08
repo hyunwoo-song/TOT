@@ -21,7 +21,7 @@ for t in range(1,T+1):
                     result += 1
                 count = 0
 
-
+    NList = list(map(list, zip(*List[::-1])))
     for j in range(N):
         count = 0
         for k in range(N):

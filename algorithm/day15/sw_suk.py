@@ -14,9 +14,9 @@ for t in range(1, T+1):
         while max_S != len(Strings[i]):
             Strings[i].append('')
     NStrings=list(map(list, zip(* Strings)))
-
     for i in range(max_S):
         for j in range(5):
             result += NStrings[i][j]
     print('#{} {}'.format(t, result))
 
+print(NStrings)
