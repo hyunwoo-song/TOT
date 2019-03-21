@@ -19,21 +19,25 @@ sys.stdin = open('1373.txt', 'r')
 # print(M)
 
 
-A= input()
-s = 0
-Result = [-1]*7
-k = ''
-if int(A) < 8:
-    print(A)
-else:
-    for i in range(len(A)-1,-1,-3):
-        result = int(A[i])*2**(len(A)-i-1)+int(A[i-1])*2**(len(A)-(i-1)-1)+int(A[i-2])*2**(len(A)-(i-2)-1)
-        result >>= 3*s
-        Result[s]=result
-        s += 1
-    print(Result)
-    for num in Result:
-        if num==-1:
-            break
-        else:
-            print(num,end="")
+# A= input()
+# t= 0
+# cnt = 0
+# result = ''
+# for a in range(len(A)-1,-1,-1):
+#     t += int(A[a])*(1<<(cnt))
+#     cnt += 1
+#     if cnt ==3:
+#         cnt = 0
+#
+#         result += str(t)
+#         t = 0
+# if A == '0':
+#     print(0)
+# if t:
+#     result += str(t)
+# for i in range(len(result)-1,-1,-1):
+#     print(result[i], end='')
+
+a = int(input(), 2)
+print(a)
+print('{}' .format(str(oct(a))[2:]))
