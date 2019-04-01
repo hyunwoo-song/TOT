@@ -19,4 +19,4 @@ for t in range(1, T+1):
         if my_min > v:
             my_min = v
         result = my_max - my_min
-    print(f'#{t} {result}')
+    print('#{} {}'.format(t, result))
