@@ -2,77 +2,69 @@ import sys
 sys.stdin = open('treeMoney.txt')
 
 import collections
-Dead = collections.deque()
-
 def ISSAFE(y,x):
-    if 0<=y<N and 0<=x < N:
+    if 0<=y<N and 0<=x<N:
         return True
 
 def SPRING():
-    l = len(Que)
-    while l>0:
-        l -= 1
-        t = Que.pop()
-        z = t[0]
-        y = t[1]
-        x = t[2]
-        if z > 0:
-            if Map[y][x] >= z:
-                Map[y][x] -= z
-                Que.appendleft((z+1,y,x))
+    for y in range(N):
+        for x in range(N):
+            if Tree[y][x]:
+                alive=[]
+                Tree[y][x].sort()
+                while Tree[y][x]:
+                    tree = Tree[y][x].pop(0)
+                    if tree <= Map[y][x]:
+                        Map[y][x] -= tree
+                        alive.append(tree+1)
+                    else:
+                        Dead.append((tree,y,x))
 
-            else:
-                Dead.append((z,y,x))
+                Tree[y][x].extend(alive)
 
 def SUMMER():
     while Dead:
-        t = Dead.popleft()
-        z= t[0]//2
-        y=t[1]
-        x=t[2]
-        Map[y][x] += z
+        d = Dead.pop()
+        z=d[0]
+        y= d[1]
+        x= d[2]
+        Map[y][x] += z//2
 
 def FALL():
-    for q in range(len(Que)-1,-1,-1):
-        z = Que[q][0]
-        y = Que[q][1]
-        x = Que[q][2]
-        if z % 5 == 0:
-            for dir in range(8):
-                Y = y+Dy[dir]
-                X = x+Dx[dir]
-                if ISSAFE(Y,X):
-                    Que.append((1,Y,X))
-
-
-
+    for y in range(N):
+        for x in range(N):
+            for z in range(len(Tree[y][x])):
+                if Tree[y][x][z] % 5 == 0:
+                    for dir in range(8):
+                        Y = y+Dy[dir]
+                        X = x+Dx[dir]
+                        if ISSAFE(Y,X):
+                            Tree[Y][X].append(1)
 def WINTER():
     for y in range(N):
         for x in range(N):
-            Map[y][x] += Arr[y][x]
+            Map[y][x] += A[y][x]
 
 Dy=[-1,-1,-1,0,0,1,1,1]
 Dx=[-1,0,1,-1,1,-1,0,1]
-
 N, M, K = map(int, input().split())
-Arr = [list(map(int, input().split())) for n in range(N)]
-Que = collections.deque()
+A = [list(map(int,input().split())) for n in range(N)]
 Map = [[5]*N for n in range(N)]
-turn = K
+Tree = [[[] for _ in range(N)] for _ in range(N)]
+Dead = collections.deque()
 
 for m in range(M):
-    x,y,z = map(int,input().split())
-    Que.append((z, y-1, x-1))
-
-while turn > 0:
+    x, y, z = map (int, input().split())
+    Tree[y-1][x-1].append(z)
+for k in range(K):
     SPRING()
     SUMMER()
     FALL()
     WINTER()
-    turn -= 1
 
 result = 0
-for z in range(len(Que)):
-    if Que[z][0]:
-        result += 1
+for y in range(N):
+    for x in range(N):
+        if Tree[y][x]:
+            result += len(Tree[y][x])
 print(result)

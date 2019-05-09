@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <!-- VueFire -->
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+</head>
+<body>
+        <script>
+            
+                // Initialize Firebase
+                // TODO: Replace with your project's customized code snippet
+                var config = {
+                  apiKey: "AIzaSyC6ZtjSxxCxI53bNZw71DtfeS3JnehkXC4",
+                  authDomain: "tot-chat-tot.firebaseapp.com",
+                  databaseURL: "https://tot-chat-tot.firebaseio.com",
+                  projectId: "tot-chat-tot",
+                };
+                firebase.initializeApp(config);
+              </script>
+    
+    <div id="app">
+        <div v-if="currentUser.uid">
+            <div>
+                <span>Hi, {{ currentUser.name }}</span>
+                <button @click='logout'>로그아웃</button>
+            </div>
+            <ul>
+                <li v-for="message in messages" :key="message['.key']">
+                    <b>{{message.username}}</b>{{message.content}}
+                </li>
+            </ul>
+        </div>
+        
+        <input type="text" v-model.trim="newMessage" v-on:keyup.enter="addMessage">
+        <button v-on:click="addMessage"> > </button>
+
+        <div id="firebaseui-auth-container">
+
+        </div>
+    </div>
+    
+    <script>
+        const database = firebase.database()
+        const auth = firebase.auth()
+        const ui = new firebaseui.auth.AuthUI(auth)
+
+        const app = new Vue({
+            el:'#app',
+            data:{
+                newMessage:'',
+                currentUser:{
+                    uid:'',
+                    email:'',
+                    name:'',
+                }
+            },
+            
+            firebase:{
+                messages:database.ref('messages')
+            },
+
+            methods:{
+                addMessage: function(){
+                    if (this.newMessage){
+                    this.$firebaseRefs.messages.push({
+                        username: this.currentUser.name,
+                        content: this.newMessage,
+                    })
+                    this.newMessage = ''
+                    }
+                
+                },
+                initUi:function(){
+                    ui.start('#firebaseui-auth-container', {
+                        signInOptions: [
+                            firebase.auth.EmailAuthProvider.PROVIDER_ID
+                        ],
+                        // Other config options...
+                        callbacks: {
+                            signInSuccessWithAuthResult: (authResult, redirectUrl) =>{
+                                this.currentUser.uid = authResult.user.uid
+                                this.currentUser.email = authResult.user.email
+                                this.currentUser.name = authResult.user.displayName
+                                return false;
+
+                            // User successfully signed in.
+                            // Return type determines whether we continue the redirect automatically
+                            // or whether we leave that to developer to handle.
+                        
+                            },
+                        },
+                    });
+                },
+                logout: function(){
+                    // 1. currentUser 초기화
+                    this.currentUser = {
+                        uid:'',
+                        email:'',
+                        name:'',
+                    }
+                    // 2. firebase auth한테 로그아웃 알리기
+                    auth.signOut().then(()=>{
+
+                    }).catch((error)=>{
+                        
+                    })
+                },
+            },//methods
+            mounted:function(){
+                auth.onAuthStateChanged((user)=>{
+                    if (user) {
+                        this.currentUser.uid = user.uid
+                        this.currentUser.email = user.email
+                        this.currentUser.name = user.displayName
+                    } else{
+                        this.initUi()
+                    }
+                })
+            }//mounted
+        })
+    </script>
+
+</body>
+</html>
